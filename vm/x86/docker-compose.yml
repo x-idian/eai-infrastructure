@@ -46,7 +46,7 @@ services:
     restart: unless-stopped
     environment:
       MASTER_KEY: ${ECOSYSTEM_API_KEY}
-      NO_MONGODB: 'true'
+      NO_MONGODB: 'false'
       FEATURE_DELAY: 800
       MONITORING_DELAY: 120
     volumes:
@@ -65,7 +65,7 @@ services:
     restart: unless-stopped
     environment:
       MASTER_KEY: ${ECOSYSTEM_API_KEY}
-      NO_MONGODB: 'true'
+      NO_MONGODB: 'false'
       FEATURE_DELAY: 800
       MONITORING_DELAY: 240
       PORT: 8092
@@ -85,7 +85,7 @@ services:
     restart: unless-stopped
     environment:
       MASTER_KEY: ${ECOSYSTEM_API_KEY}
-      NO_MONGODB: 'true'
+      NO_MONGODB: 'false'
       FEATURE_DELAY: 800
       MONITORING_DELAY: 240
       PORT: 8093
