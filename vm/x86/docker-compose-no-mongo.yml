@@ -151,6 +151,20 @@ services:
         condition: service_healthy
       ecosystem-runtime-solo:
         condition: service_started
+  caddy:
+    image: caddy:2.10.0
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    volumes:
+      - ./caddy/Caddyfile:/etc/caddy/Caddyfile
+      - ./caddy/site:/srv
+      - ./caddy/data:/data
+      - ./caddy/config:/config
+    networks:
+      - ecosystem
 
 networks:
   ecosystem:
