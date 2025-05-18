@@ -10,6 +10,6 @@ echo ""
 
 docker network create ecosystem
 
-docker compose --env-file .env -f docker-compose_x86.yaml down
-docker compose --env-file .env -f docker-compose_x86.yaml pull
-docker compose --env-file .env -f docker-compose_x86.yaml up -d
+docker compose --env-file .env -f docker-compose.yaml down
+docker compose --env-file .env -f docker-compose.yaml pull
+docker compose --env-file .env -f docker-compose.yaml up -d
