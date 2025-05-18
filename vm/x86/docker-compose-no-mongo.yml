@@ -3,12 +3,9 @@ services:
     image: ecosystemai/ecosystem-workbench:latest
     restart: unless-stopped
     environment:
-      IP: http://localhost
-      PORT: 3001
+      PORT: 443
     networks:
       - ecosystem
-    ports:
-      - "80:80"
     depends_on:
       ecosystem-server:
         condition: service_healthy
@@ -22,7 +19,6 @@ services:
     environment:
       MASTER_KEY: ${ECOSYSTEM_API_KEY}
       OPENAI_API_KEY: ${OPENAI_API_KEY}
-      IP: http://localhost
       PORT: 3001
       RESET_USER: "true"
       NO_WORKBENCH: "true"
@@ -30,10 +26,6 @@ services:
       - ${DATA_PATH}:/data
     networks:
       - ecosystem
-    ports:
-      - "3001:3001"
-      - "54445:54445"
-      - "54321:54321"
     healthcheck:
       test: ["CMD-SHELL", "wget --spider --quiet http://localhost:3001/api/v1/health || exit 1"]
       interval: 10s
@@ -53,8 +45,6 @@ services:
       - ${DATA_PATH}:/data
     networks:
       - ecosystem
-    ports:
-      - "8091:8091"
     depends_on:
       ecosystem-server:
         condition: service_healthy
@@ -73,8 +63,6 @@ services:
       - ${DATA_PATH}:/data
     networks:
       - ecosystem
-    ports:
-      - "8092:8092"
     depends_on:
       ecosystem-server:
         condition: service_healthy
@@ -93,8 +81,6 @@ services:
       - ${DATA_PATH}:/data
     networks:
       - ecosystem
-    ports:
-      - "8093:8093"
     depends_on:
       ecosystem-server:
         condition: service_healthy
@@ -112,9 +98,6 @@ services:
       - ${DATA_PATH}:/data
     networks:
       - ecosystem
-    ports:
-      - "5111:8000"
-      - "8010:8010"
     depends_on:
       ecosystem-server:
         condition: service_healthy
@@ -132,8 +115,6 @@ services:
       - ./grafana:/var/lib/grafana
     networks:
       - ecosystem
-    ports:
-      - "3000:3000"
     depends_on:
       ecosystem-server:
         condition: service_healthy
