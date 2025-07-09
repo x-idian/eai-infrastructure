@@ -8,8 +8,5 @@ echo "3. Runtime Engine x 3"
 echo "4. Python Notebooks"
 echo ""
 
-docker network create ecosystem
-
-docker compose --env-file .env -f docker-compose.yml down
-docker compose --env-file .env -f docker-compose.yml pull
-docker compose --env-file .env -f docker-compose.yml up -d
+docker compose --env-file .env -p eai -f docker-compose.yml pull
+docker compose --env-file .env -p eai -f docker-compose.yml up -d
