@@ -4,6 +4,7 @@ services:
     restart: unless-stopped
     environment:
       PORT: 443
+      IP: ${IP}
     networks:
       - ecosystem
     depends_on:
