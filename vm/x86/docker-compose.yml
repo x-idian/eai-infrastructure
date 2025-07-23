@@ -23,6 +23,7 @@ services:
       PORT: 3001
       RESET_USER: "true"
       NO_WORKBENCH: "true"
+      CLI_SETTINGS: ${EAI_SERVER_CLI_SETTINGS}
     volumes:
       - ${DATA_PATH}:/data
     networks:
