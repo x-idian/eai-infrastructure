@@ -24,6 +24,7 @@ services:
       RESET_USER: "true"
       NO_WORKBENCH: "true"
       CLI_SETTINGS: ${EAI_SERVER_CLI_SETTINGS}
+      H2O_XMX: ${H2O_XMX}
     volumes:
       - ${DATA_PATH}:/data
     networks:
@@ -42,6 +43,7 @@ services:
       MASTER_KEY: ${ECOSYSTEM_API_KEY}
       FEATURE_DELAY: 800
       MONITORING_DELAY: 120
+      ECOSYSTEM_PROP_FILE: /data/config/ecosystem1.properties
     volumes:
       - ${DATA_PATH}:/data
     networks:
@@ -59,6 +61,7 @@ services:
       FEATURE_DELAY: 800
       MONITORING_DELAY: 240
       PORT: 8092
+      ECOSYSTEM_PROP_FILE: /data/config/ecosystem2.properties
     volumes:
       - ${DATA_PATH}:/data
     networks:
@@ -76,6 +79,7 @@ services:
       FEATURE_DELAY: 800
       MONITORING_DELAY: 240
       PORT: 8093
+      ECOSYSTEM_PROP_FILE: /data/config/ecosystem3.properties
     volumes:
       - ${DATA_PATH}:/data
     networks:
