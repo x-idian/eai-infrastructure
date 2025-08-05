@@ -10,3 +10,4 @@ echo ""
 
 docker compose --env-file .env -p eai -f docker-compose.yml pull
 docker compose --env-file .env -p eai -f docker-compose.yml up -d
+docker system prune -af
