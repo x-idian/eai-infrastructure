@@ -27,6 +27,7 @@ services:
       H2O_XMX: ${H2O_XMX}
     volumes:
       - ${DATA_PATH}:/data
+      - ${DATA_PATH}/database:/database
     networks:
       - ecosystem
     healthcheck:
