@@ -10,8 +10,6 @@ services:
     depends_on:
       ecosystem-server:
         condition: service_healthy
-      ecosystem-runtime-solo:
-        condition: service_started
 
   ecosystem-server:
     image: ecosystemai/ecosystem-server:latest
@@ -122,8 +120,6 @@ services:
     depends_on:
       ecosystem-server:
         condition: service_healthy
-      ecosystem-runtime-solo:
-        condition: service_started
 
   ecosystem-manager:
     image: ecosystemai/ecosystem-manager
@@ -147,6 +143,7 @@ services:
       - "3000:3000"
       - "8091:8091"
       - "3001:3001"
+      - "127.0.0.1:2019:2019"
     volumes:
       - ./caddy/Caddyfile:/etc/caddy/Caddyfile
       - ./caddy/site:/srv
